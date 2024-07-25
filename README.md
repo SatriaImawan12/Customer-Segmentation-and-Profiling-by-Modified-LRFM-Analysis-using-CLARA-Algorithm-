@@ -69,10 +69,10 @@ A more personalized promotional strategy analysis by segmenting customers based 
 
 | Algorithm | Robust to Outliers | Handles Large Datasets | Time Complexity | Low Dimension Performance |
 |-----------|--------------------|------------------------|-----------------|---------------------------|
-| CLARA     | Yes                | Yes                    | O(k(n-m)^2)     | Good                      |
-| K-Means   | No                 | Yes                    | O(nkdi)         | Excellent                 |
-| DBSCAN    | Yes                | Moderate               | O(nlogn)        | Good                      |
-| Agglomerative | No             | No                     | O(n^3)          | Moderate                  |
+| CLARA     | Yes                | Yes                    | Middle     | Good                      |
+| K-Means   | No                 | Yes                    | Low         | Excellent                 |
+| DBSCAN    | Yes                | Moderate               | High        | Good                      |
+| K-Medoids | Yes             | No                     | High          | Good                  |
 
 ### Advantages of CLARA
 - Handles large datasets efficiently.
