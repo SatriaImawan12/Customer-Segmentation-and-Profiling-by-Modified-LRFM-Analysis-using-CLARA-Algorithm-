@@ -56,8 +56,8 @@ A more personalized promotional strategy analysis by segmenting customers based 
 - Kept outliers to preserve valuable transaction information.
 
 ## Feature Engineering
-- **Length**: Difference between the last and first transaction dates.
-- **Recency Score (1/R)**: Inverse of the number of days since the last transaction.
+- **Length**: Difference between the date of the last transaction and the first transaction for each user.
+- **Recency Score (1/R)**: Inverse of the value of the difference between the last transaction date and the reference date (2025-01-01).
 - **Monetary per Frequency (M/F)**: Average amount spent per transaction.
 
 ### Importance of LRFM Metrics
@@ -65,6 +65,23 @@ A more personalized promotional strategy analysis by segmenting customers based 
 - Identify customers at risk of churn and the most valuable customers.
 
 ## Modelling
+### Algorithm Comparison Table
+
+| Algorithm | Robust to Outliers | Handles Large Datasets | Time Complexity | Low Dimension Performance |
+|-----------|--------------------|------------------------|-----------------|---------------------------|
+| CLARA     | Yes                | Yes                    | O(k(n-m)^2)     | Good                      |
+| K-Means   | No                 | Yes                    | O(nkdi)         | Excellent                 |
+| DBSCAN    | Yes                | Moderate               | O(nlogn)        | Good                      |
+| Agglomerative | No             | No                     | O(n^3)          | Moderate                  |
+
+### Advantages of CLARA
+- Handles large datasets efficiently.
+- Provides robust clustering results due to sampling.
+
+### Disadvantages of CLARA
+- Performance can be sensitive to the choice of parameters.
+- May not be as accurate on small datasets due to its reliance on sampling.
+- 
 ### Algorithm: CLARA
 - A modification of the PAM (Partitioning Around Medoids) algorithm.
 - Uses medoids as cluster centers and sampling methods for efficiency with large datasets.
@@ -79,7 +96,7 @@ A more personalized promotional strategy analysis by segmenting customers based 
 - `n_sampling = 300`
 - `init = k-medoids++`
 - `random_state = 42`
-- Silhouette Score: 0.652
+- `Silhouette Score: 0.652`
 
 ## Model Evaluation
 ### Cluster Profiles
@@ -89,6 +106,13 @@ A more personalized promotional strategy analysis by segmenting customers based 
 4. **Loyal** (453 customers): Long-lasting, medium spenders, most recent transactions.
 
 ## Profiling
+| Cluster Name       | Number of Customers | Description                                            |
+|--------------------|---------------------|--------------------------------------------------------|
+| At Risk            | 413                 | Long-lasting, medium spenders, last transaction a long time ago |
+| Potential Loyalist | 452                 | Long-lasting, small spenders, most recent transactions |
+| Lost               | 111                 | Short-term, very small spenders, last transaction a long time ago |
+| Loyal              | 453                 | Long-lasting, medium spenders, most recent transactions |
+
 - **At Risk**: Re-engage with personalized offers.
 - **Potential Loyalist**: Encourage repeat purchases with targeted campaigns.
 - **Lost**: Reactivate with exclusive discounts and limited-time offers.
@@ -115,10 +139,6 @@ A more personalized promotional strategy analysis by segmenting customers based 
 
 ## Important Note
 All datasets and project results are used solely for educational purposes and do not reflect actual values. Please do not use this project as a reference or recommendation.
-
-## Acknowledgments
-Mentors: Kak Bachtiyar, Kak Renita
-Team: Andri Maulana, Nadia Adyutarahma P., Nabila Amina R. Syifa Mufidah Rahmad, Kholid, Satria Imawan
 
 ---
 
