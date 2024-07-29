@@ -97,6 +97,7 @@ A more personalized promotional strategy analysis by segmenting customers based 
 - `init = k-medoids++`
 - `random_state = 42`
 - `Silhouette Score: 0.652`
+
 ![best_model.png](best_model.png)
 
 ## Model Evaluation
