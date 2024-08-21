@@ -22,15 +22,17 @@ This project aims to enhance the marketing strategy of a company by understandin
 
 ## Problem Analysis
 ### Retention Issues
+![cohort_diskon.png](cohort_diskon.png)
+![cohort_non_diskon.png](cohort_non_diskon.png)
 - Users with their first transaction using a discount show similar or worse retention compared to non-discount users.
 - The existing discount promotions are not optimal in attracting new customers and retaining them in the long term.
 
-## Goals
+### Goals
 - Understand customer purchasing behavior to optimize promotional strategies for better targeting.
 - Increase customer retention and maintain existing customer loyalty.
 
-## Solution
-A more personalized promotional strategy analysis by segmenting customers based on purchasing behavior patterns using the modified LRFM metrics.
+### Solution
+- A more personalized promotional strategy analysis by segmenting customers based on purchasing behavior patterns using the modified LRFM metrics.
 
 ## Data Source
 - [Dataset Superapp](https://drive.google.com/file/d/1-xTSpkU5joEFftCPyrM0o9Ek3hh2Zc1k/view)
@@ -55,7 +57,7 @@ A more personalized promotional strategy analysis by segmenting customers based 
 - Deleted rows with invalid data (4,991 rows).
 - Kept outliers to preserve valuable transaction information.
 
-## Feature Engineering
+### Feature Engineering
 - **Length**: Difference between the date of the last transaction and the first transaction for each user.
 - **Recency Score (1/R)**: Inverse of the value of the difference between the last transaction date and the reference date (2025-01-01).
 - **Monetary per Frequency (M/F)**: Average amount spent per transaction.
